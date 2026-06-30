@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Outfit', 'Inter', sans-serif;
+  
+  /* Curated Premium Colors matching specifications */
+  --color-primary: #6366F1;         /* Indigo 500 */
+  --color-primary-hover: #4f46e5;
+  --color-secondary: #8B5CF6;       /* Purple 500 */
+  --color-secondary-hover: #7c3aed;
+  --color-accent: #EC4899;          /* Pink 500 */
+  
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  
+  /* Refined neutral mappings for seamless upgrade */
+  --color-neutral-50: #FAFAFC;      /* Main Page Background (Light) */
+  --color-neutral-100: #F3F4F6;     /* Hover & Input Backgrounds (Light) */
+  --color-neutral-150: #E5E7EB;     /* Subtle Borders */
+  --color-neutral-200: #E5E7EB;     /* Standard Borders (Light) */
+  --color-neutral-205: #D1D5DB;     /* Borders hover */
+  --color-neutral-300: #D1D5DB;     /* Scrollbars & Dividers */
+  --color-neutral-400: #9CA3AF;     /* Muted labels */
+  --color-neutral-405: #6B7280;     /* Secondary Text */
+  --color-neutral-450: #6B7280;     
+  --color-neutral-455: #6B7280;     
+  --color-neutral-500: #4B5563;     /* Icon fills */
+  --color-neutral-600: #374151;     
+  --color-neutral-650: #111827;     /* Body Text */
+  --color-neutral-700: #111827;     
+  --color-neutral-250: #E4E4E7;
+  --color-neutral-550: #71717A;
+  --color-neutral-855: #202023;
+  --color-neutral-955: #050507;
+  --color-neutral-800: #27272A;     /* Borders (Dark) */
+  --color-neutral-805: #F9FAFB;     
+  --color-neutral-850: #27272A;     /* Dividers (Dark) */
+  --color-neutral-900: #18181B;     /* Cards, Modals & Sidebar (Dark) */
+  --color-neutral-950: #09090B;     /* Main Background (Dark) */
+}
+
+@layer base {
+  body {
+    @apply bg-[#FAFAFC] text-[#111827] font-sans antialiased selection:bg-[#6366F1]/10 selection:text-[#6366F1] dark:bg-[#09090B] dark:text-[#F9FAFB];
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Universal transition for premium fluid transitions */
+  * {
+    transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-200/80 rounded-full hover:bg-neutral-300 dark:bg-neutral-850 dark:hover:bg-neutral-800;
+  }
+
+  /* Hide default scrollbars */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  /* Premium Glassmorphism Panel styles */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04),
+                0 1px 1px 0 rgba(0, 0, 0, 0.02),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .dark .glass-panel {
+    background: rgba(15, 15, 20, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-panel-hover {
+    @apply hover:bg-white/80 dark:hover:bg-neutral-900/80 hover:border-white/60 dark:hover:border-white/10 hover:shadow-lg hover:shadow-indigo-500/5;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+  }
+
+  .dark .glass-card {
+    background: rgba(24, 24, 28, 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  /* Ambient room color nodes */
+  .bg-ambient-red {
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0) 70%);
+  }
+
+  .bg-ambient-purple {
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(139, 92, 246, 0) 70%);
+  }
+
+  .bg-ambient-indigo {
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0) 70%);
+  }
+}
+
+/* Custom Floating Input Label Design system */
+.floating-input-group {
+  position: relative;
+}
+
+.floating-input-group input:placeholder-shown ~ label {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #9CA3AF;
+  font-weight: 500;
+  padding-left: 4px;
+}
+
+.floating-input-group input:focus ~ label,
+.floating-input-group input:not(:placeholder-shown) ~ label {
+  top: 8px;
+  transform: translateY(0);
+  font-size: 10px;
+  color: #8B5CF6;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.floating-input-group input {
+  padding-top: 18px;
+  padding-bottom: 6px;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animations */
+@keyframes heart-beat {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.3); opacity: 1; }
+  75% { transform: scale(0.95); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+.animate-heart-beat {
+  animation: heart-beat 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Skeleton animation overrides */
+@keyframes premium-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-premium-pulse {
+  animation: premium-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Dark mode configurations */
+.dark body {
+  @apply bg-[#09090B] text-[#F9FAFB];
+}
+
